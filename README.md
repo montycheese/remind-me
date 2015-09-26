@@ -5,7 +5,7 @@ Simple reminder tool that sends reminders in intervals to one or more email peop
 Fork or download ZIP file
 
 ## Usage
-1) Create a file named <code>creds.py</code> in the root directory of the module.
+1) Create a file named <code>creds.py</code> in the src directory of the module.
 
 2) Set these values to unique personal values in the file
    <code>DEFAULT_RECEIVER = "me@example.com"</code>  
