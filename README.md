@@ -7,12 +7,12 @@ Fork or download ZIP file
 ## Usage
 1) Create a file named <code>creds.py</code> in the root directory of the module.
 
-2) Set these values to unique personal values in the file:
-   *<code>DEFAULT_RECEIVER = "me@example.com"</code>
-   *<code>SENDER = "sender@gmail.com"</code>
-   *<code>SENDER_PWD = "password"</code>
-   *<code>GMAIL_HOST = "smtp.gmail.com"</code>
-   *<code>GMAIL_PORT = 587</code>
+2) Set these values to unique personal values in the file
+   <code>DEFAULT_RECEIVER = "me@example.com"</code>  
+   <code>SENDER = "sender@gmail.com"</code>  
+   <code>SENDER_PWD = "password"</code>  
+   <code>GMAIL_HOST = "smtp.gmail.com"</code>  
+   <code>GMAIL_PORT = 587</code>  
 
 3) Run remindme.py!
 
