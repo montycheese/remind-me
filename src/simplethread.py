@@ -1,8 +1,11 @@
-import threading, simpleemail
+from smtplib import SMTPException
+from creds import SENDER
+from threading import Thread, Event
+import simpleemail
 
-class SimpleThread(threading.Thread):
-    def __init__(self,refresh_time, cycle_count, email, event=threading.Event()):
-        threading.Thread.__init__(self)
+class SimpleThread(Thread):
+    def __init__(self, refresh_time, cycle_count, email, event=Event()):
+        Thread.__init__(self)
         self.stopped = event
         self.refresh_time = refresh_time * 60
         self.cycle_count = cycle_count
@@ -14,6 +17,11 @@ class SimpleThread(threading.Thread):
 		    self.stopped.wait(self.refresh_time)
 		    print "Emailing"
 		    progress = "\nThis is reminder %d of %d." % (self.count, self.cycle_count)
-		    self.email.send(self.email.msg + progress)
-		    self.count += 1
+		    try:
+		    	self.email.send(self.email.msg + progress)
+		    	self.count += 1
+		    except SMTPException:
+		    	print '''Username/Password combination for %s or or hostname  refused.\nPlease re-check your credientials.''' % SENDER
+		    	self.stopped.set()
+                        return
             self.stopped.set()
