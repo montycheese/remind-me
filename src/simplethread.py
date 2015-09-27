@@ -1,4 +1,4 @@
-import threading
+import threading, simpleemail
 
 class SimpleThread(threading.Thread):
     def __init__(self,refresh_time, cycle_count, email, event=threading.Event()):
