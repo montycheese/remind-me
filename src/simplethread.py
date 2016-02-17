@@ -24,4 +24,7 @@ class SimpleThread(Thread):
 		    	print '''Username/Password combination for %s or or hostname  refused.\nPlease re-check your credientials.''' % SENDER
 		    	self.stopped.set()
                         return
+                    except Exception:
+                        print 'most likely lost internet connection, exiting'
+                        return
             self.stopped.set()
